@@ -1,0 +1,7 @@
+.square {
+    width: 40px;
+    height: 40px;
+    background-color: inherit;
+    /* Use inherited background color */
+    margin: 5px;
+}
