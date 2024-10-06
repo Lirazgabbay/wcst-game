@@ -10,50 +10,70 @@ import './shapes-css/triangle.css';
 function App() {
   const [game] = useState(() => new WCSTGame());
   const [gameState, setGameState] = useState(null);
-  const [feedbackMessage, setFeedbackMessage] = useState(''); // New state for feedback message
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const [isDealing, setIsDealing] = useState(false);
+  const [dealtCards, setDealtCards] = useState([]);
 
   useEffect(() => {
-    const initGame = () => {
+    const initGame = async () => {
       const initialState = game.WCSTgame();
       setGameState(initialState);
-      console.log('Initial game state:', initialState);
+      await dealCards();
     };
 
     initGame();
   }, [game]);
 
+  const dealCards = async () => {
+    setIsDealing(true);
+    setDealtCards([]);
+
+    for (let i = 0; i < 3; i++) {
+      await new Promise(resolve => setTimeout(resolve, 200)); // Reduced delay for quicker animation
+      setDealtCards(prev => [...prev, i]);
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 200)); // Wait for the last card to finish dealing
+    setIsDealing(false);
+  };
+
   const handleCardSelection = async (selectedCard) => {
-    if (!gameState.gameOver) {
+    if (!gameState.gameOver && !isDealing) {
       await game.handleUserSelection(selectedCard);
       const newState = game.WCSTgame();
       setGameState(newState);
 
-      // Set feedback message based on success or mistake
       const feedback = game.checkCorrectness(selectedCard, gameState.userCard, gameState.category)
         ? 'Match!'
         : 'Mismatch';
       setFeedbackMessage(feedback);
 
-      // Clear feedback message after 2 seconds
       setTimeout(() => {
         setFeedbackMessage('');
       }, 2000);
 
-      console.log('Updated game state:', newState);
+      await dealCards(); // Deal new cards after selection
     }
   };
 
-  const renderCard = (card) => {
+  const renderCard = (card, index, isUserCard = false) => {
     if (!card) return null;
+    const isDealt = dealtCards.includes(index);
+    const cardClass = isUserCard ? 'card user-card' : `card board-card ${isDealt ? 'dealt' : ''}`;
     return (
-      <div className="card-content">
-        {[...Array(card.number)].map((_, index) => (
-          <div
-            key={index}
-            className={`shape ${card.shape}`}
-            style={{ backgroundColor: card.color }}
-          ></div>
-        ))}
+      <div
+        className={cardClass}
+        onClick={() => !isUserCard && !isDealing && handleCardSelection(card)}
+      >
+        <div className="card-content">
+          {[...Array(card.number)].map((_, i) => (
+            <div
+              key={i}
+              className={`shape ${card.shape}`}
+              style={{ backgroundColor: card.color }}
+            ></div>
+          ))}
+        </div>
       </div>
     );
   };
@@ -73,32 +93,21 @@ function App() {
       <div className="game-board">
         <h2>Your Card:</h2>
         {gameState.userCard ? (
-          <div className="card user-card">
-            {renderCard(gameState.userCard)}
-          </div>
+          renderCard(gameState.userCard, null, true)
         ) : (
           <p>No user card available</p>
         )}
 
         <h2>Select the matching card:</h2>
-        <div className="board-cards" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className={`board-cards ${isDealing ? 'dealing' : ''}`}>
           {gameState.boardCards && gameState.boardCards.length > 0 ? (
-            gameState.boardCards.map((card, index) => (
-              <div
-                className="card"
-                key={index}
-                onClick={() => handleCardSelection(card)}
-              >
-                {renderCard(card)}
-              </div>
-            ))
+            gameState.boardCards.map((card, index) => renderCard(card, index))
           ) : (
             <p>No board cards available</p>
           )}
         </div>
       </div>
 
-      {/* Feedback message below the cards */}
       <div className="feedback-message">
         <p>{feedbackMessage}</p>
       </div>

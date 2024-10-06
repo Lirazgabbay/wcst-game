@@ -16,7 +16,39 @@
 .card-content {
     display: flex;
     flex-wrap: wrap;
-    /* Allow shapes to wrap to the next line if necessary */
     justify-content: center;
     align-items: center;
+}
+
+/* Board Card Animation */
+.board-card {
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Dealt Card Animation */
+.board-card.dealt {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Board Cards Container */
+.board-cards {
+    display: flex;
+    justify-content: center;
+    min-height: 200px;
+    /* Adjust based on your card size */
+}
+
+/* User Card Styles */
+.user-card {
+    margin-bottom: 20px;
+    opacity: 1;
+    transform: none;
+}
+
+/* Prevent interaction during dealing */
+.board-cards.dealing .board-card {
+    pointer-events: none;
 }
