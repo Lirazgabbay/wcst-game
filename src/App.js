@@ -11,7 +11,7 @@ function App() {
   const [game] = useState(() => new WCSTGame());
   const [gameState, setGameState] = useState(null);
   const [feedbackMessage, setFeedbackMessage] = useState('');
-  const [isDealing, setIsDealing] = useState(false);
+  const [isDealing, setIsDealing] = useState(false); //a boolean object that represent if the dealing process is running
   const [dealtCards, setDealtCards] = useState([]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function App() {
     setDealtCards([]);
 
     for (let i = 0; i < 3; i++) {
-      await new Promise(resolve => setTimeout(resolve, 200)); // Reduced delay for quicker animation
+      await new Promise(resolve => setTimeout(resolve, 300)); // Reduced delay for quicker animation
       setDealtCards(prev => [...prev, i]);
     }
 
@@ -63,6 +63,7 @@ function App() {
     return (
       <div
         className={cardClass}
+        //!isDealing: Prevents the user from selecting a card while the cards are still being dealt.
         onClick={() => !isUserCard && !isDealing && handleCardSelection(card)}
       >
         <div className="card-content">
@@ -79,7 +80,7 @@ function App() {
   };
 
   if (!gameState) return <div>Loading...</div>;
-
+  //do not forget to delete the Current Category and Success in Category
   return (
     <div className="App">
       <header className="App-header">
