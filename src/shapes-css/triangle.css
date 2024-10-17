@@ -1,12 +1,12 @@
 .triangle {
-    width: 45px;
+    width: 47px;
     /* Adjust the width */
-    height: 45px;
+    height: 47px;
     /* Adjust the height */
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     background-color: currentColor;
     /* Triangle inherits color */
-    margin: 5px auto;
+    margin: 5px;
     /* Center the triangle within the card */
     display: block;
     /* Ensure it's treated as a block for centering */

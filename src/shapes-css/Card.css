@@ -1,13 +1,14 @@
 /* Basic Card Container */
 .card {
-    inline-size: 120px;
-    block-size: 160px;
+    inline-size: 140px;
+    block-size: 200px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
     border: 2px solid #333;
+    background-color: rgba(225, 229, 233, 0.932);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 10px;
 }
