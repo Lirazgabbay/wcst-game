@@ -1,3 +1,4 @@
+// Liraz and Noa
 import React, { useState, useEffect } from 'react';
 import WCSTGame from './WCSTGame';
 import './App.css';
@@ -97,7 +98,7 @@ function App() {
         ) : (
           <p>No user card available</p>
         )}
-
+        <div>
         <h2>Select the matching card:</h2>
         <div className={`board-cards ${isDealing ? 'dealing' : ''}`}>
           {gameState.boardCards && gameState.boardCards.length > 0 ? (
@@ -105,6 +106,7 @@ function App() {
           ) : (
             <p>No board cards available</p>
           )}
+          </div>
         </div>
       </div>
 
