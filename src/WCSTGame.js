@@ -15,8 +15,6 @@ class WCSTGame {
     InitBoard() {
         this.userCard = this.generateUserCard();
         this.boardCards = this.generateBoardCards(this.userCard);
-        console.log('InitBoard - User Card:', this.userCard);
-        console.log('InitBoard - Board Cards:', this.boardCards);
     }
 
     // Helper to get a random card from the deck
@@ -30,8 +28,6 @@ class WCSTGame {
         const randomCard = this.deck[randomIndex];
         return randomCard;
     }
-
-
 
     // Generate 3 board cards that match one property each
     generateBoardCards(userCard) {
@@ -99,18 +95,6 @@ class WCSTGame {
         this.InitBoard();
     }
 
-
-    getSelectedCardByUser() {
-        return new Promise((resolve) => {
-            const boardCardsElements = document.querySelectorAll('.board-card');
-
-            boardCardsElements.forEach((element, index) => {
-                element.addEventListener('click', () => {
-                    resolve(this.boardCards[index]);  // Resolve with the selected card
-                });
-            });
-        });
-    }
 
     WCSTgame() {
         // This method should now just return the initial state

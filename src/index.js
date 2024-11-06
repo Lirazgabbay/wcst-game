@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 // Use createRoot for React 18
-const root = ReactDOM.createRoot(document.getElementById('root')); // Ensure the 'root' element exists in your HTML
+const root = ReactDOM.createRoot(document.getElementById('root')); // Ensure the 'root' element exists in HTML
 root.render(
   <React.StrictMode>
     <App />
