@@ -1,0 +1,69 @@
+/* Home Page */
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .home-page h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  input {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .error {
+    color: red;
+    font-size: 1rem;
+    margin-top: -5px;
+  }
+  
+  /* Instructions Page */
+  .instructions-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+  }
+  
+  .instructions-page h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+  }
+  
+  .instructions-page p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  button {
+    margin-top: 20px;
+  }

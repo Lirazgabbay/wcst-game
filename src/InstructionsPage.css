@@ -1,0 +1,75 @@
+/* Import the Amaranth font */
+@import url('./fonts/amaranth.css');
+
+.instructions-page {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Start content from the top */
+    width: 100vw;
+    min-height: 100vh; /* Allows scrolling if content exceeds viewport */
+    padding-top: 20px; /* Adds space at the top */
+    box-sizing: border-box;
+    overflow-y: auto; /* Enables vertical scrolling */
+    font-family: 'Amaranth', sans-serif; /* Use Amaranth font globally */
+}
+
+.instructions-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    max-width: 600px;
+    width: 90%;
+    text-align: left; /* Align text to the left */
+}
+
+/* Title styling */
+.instructions-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.instructions-container h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.highlighted {
+    color: #000;
+    font-weight: bold;
+}
+
+.instructions-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #333;
+}
+
+.instructions-container button {
+    background-color: #c0392b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.instructions-container button:hover {
+    background-color: #a83224;
+}

@@ -1,0 +1,111 @@
+.WCSTGameComponent {
+  text-align: center;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Ensure the game-board takes up the full available space */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.WCSTGameComponent-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  width: fit-content;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* margin-block-start: 20px; */
+  /* text-align: left; */
+  /* margin-left: 0; */
+  /* Fixed position on the left side */
+}
+
+.WCSTGameComponent-header p {
+  font-size: 1.5rem;
+}
+
+.game-board {
+  display: flex;
+  justify-content: space-between;
+  /* Distribute space between left and center elements */
+  align-items: center;
+  /* Vertically align elements */
+  width: 100%;
+  /* Make the container span the full width */
+
+}
+
+.feedback-message.Match {
+  font-size: 2rem;
+  /* Increased text size */
+  color: rgb(16, 84, 0);
+  font-weight: bold;
+  /* Use font-weight for clearer styling */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+.feedback-message.Mismatch {
+  font-size: 2rem;
+  /* Increased text size */
+  color: rgb(95, 4, 4);
+  font-weight: bold;
+  /* Use font-weight for clearer styling */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.center-element {
+  margin: 20px;
+  /* Center the element within the container */
+  flex: 1;
+  /* Allow this element to grow if necessary */
+  text-align: center;
+  /* Ensure the text is centered within this element */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.center-element h2 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  /* Adjust the spacing between headers */
+}
+
+.button-container {
+  justify-content: space-between;
+  gap: 10px;
+  display: flex;
+  /* Adds space between the buttons */
+}
+
+button {
+  background-color: #596583;
+  color: white;
+  padding: 15px;
+  font-family: 'Amaranth', sans-serif;
+  /* Correct font family */
+  border: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
