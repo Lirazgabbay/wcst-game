@@ -1,3 +1,4 @@
+// Liraz and Noa
 import React, { useState, useEffect } from 'react';
 import WCSTGame from './WCSTGame';
 import './App.css';
