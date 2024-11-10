@@ -1,69 +1,107 @@
-/* Home Page */
 .home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: white;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  .home-page h1 {
-    font-size: 3rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  }
-  
-  input {
-    margin: 10px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-  }
-  
-  .error {
-    color: red;
-    font-size: 1rem;
-    margin-top: -5px;
-  }
-  
-  /* Instructions Page */
-  .instructions-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: white;
-  }
-  
-  .instructions-page h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
-  }
-  
-  .instructions-page p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    text-align: center;
-    margin: 20px;
-  }
-  
-  button {
-    margin-top: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Keep everything aligned to the left */
+  min-height: 100vh;
+  color: white;
+  text-align: left; /* Keep text aligned to the left */
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+.home-page h2{
+  font-size: 2.5rem;
+  color:#4a5568;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.WCSTTitle {
+  padding: 20px;
+  color:#4a5568;
+  width: fit-content;
+  position: absolute;
+  top: 50%; /* Vertically center the title */
+  left: 50%; /* Horizontally center the title */
+  transform: translate(-60%, -60%); /* Use transform to perfectly center */
+}
+
+.WCSTTitle h1 {
+  font-size: 5rem;
+  color: #ffff;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+}
+
+.form-container {
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 0px;
+}
+
+input,
+button {
+  /* margin: 10px 0; */
+  padding-right: 40px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+select {
+  transform: translate(4%, 0%); /* Use transform to perfectly center */
+  padding: 5px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  padding-right: 100px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+  box-sizing: border-box;
+  background-color: white;
+
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+button {
+  background-color: #4a5568;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2d3748;
+}

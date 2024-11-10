@@ -21,32 +21,19 @@ function InstructionsPage({ userName, onNext }) {
         </ul>
 
         <h3 className="subtitle">Gameplay:</h3>
-        <p><span className="highlighted">Three target cards</span> are displayed in a row.</p>
-        <p>
-          Each round, you’ll receive <span className="highlighted">one card</span>, and you’ll need to decide how to match this card to one
-          of the three target cards.
-        </p>
-        <p>
-          You can <span className="highlighted">match your card</span> to any target card based on one of the attributes you choose:
-          color, shape, or quantity.
-        </p>
-        <p>
-          There are <span className="highlighted">no specific instructions or pre-defined rules</span> on how to do this.
-        </p>
-        <p>
-          After each match, you’ll receive <span className="highlighted">feedback</span> on whether you were correct or incorrect (both an auditory signal and an on-screen message).
-        </p>
-        <p>
-          <span className="highlighted">Based on this feedback, try to understand the rule</span> for matching the cards you receive to the target cards.
-        </p>
-        <p>
-          Once you think you understand the rule, choose the appropriate card without hesitation.
-        </p>
-
+        <ul>
+          <li><span className="highlighted">Three target cards</span> are displayed in a row.</li>
+          <li>Each round, you’ll receive <span className="highlighted">one card</span>, and you’ll need to decide how to match this card to one
+          of the three target cards.</li>
+          <li>You can <span className="highlighted">match your card</span> to any target card based on one of the attributes you choose:
+          color, shape, or quantity.</li>
+          <li>There are <span className="highlighted">no specific instructions or pre-defined rules</span> on how to do this.</li>
+          <li>After each match, you’ll receive <span className="highlighted">feedback</span> on whether you were correct or incorrect (both an auditory signal and an on-screen message).</li>
+          <li><span className="highlighted">Based on this feedback, try to understand the rule</span> for matching the cards you receive to the target cards.</li>
+          <li>Once you think you understand the rule, choose the appropriate card without hesitation.</li>
+        </ul>
         <p> <span className="highlighted"> Note:</span> The matching rules may change over time.</p>
-
         <p> <span className="highlighted"> Your goal:</span> To make as many correct matches as possible according to the rule set by the game.</p>
-
         <button onClick={onNext}>Next</button>
       </div>
     </div>

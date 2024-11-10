@@ -11,7 +11,6 @@
     align-items: flex-start; /* Start content from the top */
     width: 100vw;
     min-height: 100vh; /* Allows scrolling if content exceeds viewport */
-    padding-top: 20px; /* Adds space at the top */
     box-sizing: border-box;
     overflow-y: auto; /* Enables vertical scrolling */
     font-family: 'Amaranth', sans-serif; /* Use Amaranth font globally */
@@ -37,19 +36,25 @@
 .instructions-container h2 {
     font-size: 1.8rem;
     color: #555;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .subtitle {
     font-size: 1.5rem;
     color: #333;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .highlighted {
     color: #000;
     font-weight: bold;
+}
+
+.instructions-container p, .instructions-container ul {
+    margin-top: 5px; /* Remove the default margin-top */
+    margin-bottom: 5px;
 }
 
 .instructions-container ul {
