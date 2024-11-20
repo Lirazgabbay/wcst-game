@@ -52,11 +52,8 @@ function WCSTGameComponent({ onExit, onStartOver }) {
         ? 'Match!'
         : 'Mismatch';
       setFeedbackMessage(feedback);
-
-      setTimeout(() => {
-        setFeedbackMessage('');
-      }, 2000);
-
+      await new Promise(resolve => setTimeout(resolve, 200));
+      setFeedbackMessage('');
       await dealCards(); // Deal new cards after selection
     }
   };
