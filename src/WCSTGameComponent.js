@@ -44,17 +44,27 @@ function WCSTGameComponent({ onExit, onStartOver }) {
 
   const handleCardSelection = async (selectedCard) => {
     if (!gameState.gameOver && !isDealing) {
-      await game.handleUserSelection(selectedCard);
-      const newState = game.WCSTgame();
-      setGameState(newState);
-
+      // 1. User selects card and we process the selection
       const feedback = game.checkCorrectness(selectedCard, gameState.userCard, gameState.category)
         ? 'Match!'
         : 'Mismatch';
+
+      // 2. Wait 1 second before showing feedback
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // 3. Show feedback
       setFeedbackMessage(feedback);
-      await new Promise(resolve => setTimeout(resolve, 200));
+      
+      // 4. Keep feedback visible for 2 seconds
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // 5. Clear feedback and start new round
       setFeedbackMessage('');
-      await dealCards(); // Deal new cards after selection
+      //continue to the next round
+      await game.handleUserSelection(selectedCard);
+      const newState = game.WCSTgame();
+      setGameState(newState);
+      await dealCards();
     }
   };
 
