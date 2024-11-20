@@ -44,22 +44,26 @@ function WCSTGameComponent({ onExit, onStartOver }) {
 
   const handleCardSelection = async (selectedCard) => {
     if (!gameState.gameOver && !isDealing) {
-      // 1. User selects card and we process the selection
+      // User selects card and we process the selection
       const feedback = game.checkCorrectness(selectedCard, gameState.userCard, gameState.category)
         ? 'Match!'
         : 'Mismatch';
 
-      // 2. Wait 1 second before showing feedback
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Wait 200 millisecond before showing feedback
+      await new Promise(resolve => setTimeout(resolve, 200));
       
-      // 3. Show feedback
+      // Show feedback
       setFeedbackMessage(feedback);
       
-      // 4. Keep feedback visible for 2 seconds
+      // Keep feedback visible for 2 seconds
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // 5. Clear feedback and start new round
+      // Clear feedback and start new round
       setFeedbackMessage('');
+
+      // the interval between the end of the feedback and the start of the next round is 500 miliseconds
+      await new Promise(resolve => setTimeout(resolve, 500));
+
       //continue to the next round
       await game.handleUserSelection(selectedCard);
       const newState = game.WCSTgame();
