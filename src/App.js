@@ -14,12 +14,14 @@ function App() {
   };
 
   const startGame = () => setPage(3);
+  const exitGame = () => setPage(1);
+  const startOver = () => setPage(2);
 
   return (
     <div className="App">
       {page === 1 && <HomePage onNext={goToInstructions} />}
       {page === 2 && <InstructionsPage userName={userName} onNext={startGame} />}
-      {page === 3 && <WCSTGameComponent />}
+      {page === 3 && <WCSTGameComponent onExit={exitGame} onStartOver={startOver} />}
     </div>
   );
 }

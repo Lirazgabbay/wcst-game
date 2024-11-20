@@ -8,7 +8,7 @@
     align-items: center;
     margin: 10px;
     border: 2px solid #333;
-    background-color: rgba(225, 229, 233, 0.932);
+    background-color: white;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 10px;
 }
@@ -21,25 +21,41 @@
     align-items: center;
 }
 
-/* Board Card Animation */
-.board-card {
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-/* Dealt Card Animation */
-.board-card.dealt {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Board Cards Container */
 .board-cards {
     display: flex;
     justify-content: center;
     min-height: 200px;
-    /* Adjust based on your card size */
+    gap: 20px;
+    position: relative;
+}
+
+/* Board Card Animation */
+.board-card {
+    transition: all 1s ease-out;
+    opacity: 0;
+    transform: translateY(300px);
+    position: relative;
+    visibility: hidden;
+}
+
+/* Dealt Card Animation */
+.board-card.dealt {
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Animation when dealing */
+.board-cards.dealing .board-card {
+    opacity: 0;
+    transform: translateY(300px);
+}
+
+.board-cards.dealing .board-card.dealt {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* User Card Styles */
@@ -47,6 +63,7 @@
     margin-bottom: 20px;
     opacity: 1;
     transform: none;
+    visibility: visible;
 }
 
 /* Prevent interaction during dealing */

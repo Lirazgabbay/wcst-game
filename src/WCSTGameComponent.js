@@ -10,7 +10,7 @@ import './shapes-css/star.css';
 import './shapes-css/triangle.css';
 import './fonts/amaranth.css';
 
-function WCSTGameComponent() {
+function WCSTGameComponent({ onExit, onStartOver }) {
   const [game] = useState(() => new WCSTGame());
   const [gameState, setGameState] = useState(null);
   const [feedbackMessage, setFeedbackMessage] = useState('');
@@ -30,13 +30,15 @@ function WCSTGameComponent() {
   const dealCards = async () => {
     setIsDealing(true);
     setDealtCards([]);
-
-    for (let i = 0; i < 3; i++) {
-      await new Promise(resolve => setTimeout(resolve, 300)); // Reduced delay for quicker animation
-      setDealtCards(prev => [...prev, i]);
-    }
-
-    await new Promise(resolve => setTimeout(resolve, 200)); // Wait for the last card to finish dealing
+    
+    // Small delay to ensure the cards reset to starting position
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Show all three cards at once
+    setDealtCards([0, 1, 2]);
+    
+    // Wait for animation to complete
+    await new Promise(resolve => setTimeout(resolve, 1000));
     setIsDealing(false);
   };
 
@@ -83,11 +85,17 @@ function WCSTGameComponent() {
   };
 
   const handleExit = () => {
-    //if the user enter Exit: it will alert a message Are you sure if so - return to the home page
+    const confirmExit = window.confirm('Are you sure you want to exit the game?');
+    if (confirmExit) {
+      onExit();
+    }
   };
 
   const handleStartOver = () => {
-    //if the user enter Start Over: it will alert a message Are you sure if so - start over
+      const confirmStartOver = window.confirm('Are you sure you want to start over?');
+      if (confirmStartOver) {
+        onStartOver();
+      }
   };
 
   if (!gameState) return <div>Loading...</div>;

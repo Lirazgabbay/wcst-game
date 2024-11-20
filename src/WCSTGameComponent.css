@@ -93,19 +93,20 @@
   justify-content: space-between;
   gap: 10px;
   display: flex;
+  width: 270px;
   /* Adds space between the buttons */
 }
 
-button {
-  background-color: #596583;
+.WCSTGameComponent button {
+  background-color: hsl(223, 19%, 43%);
   color: white;
   padding: 15px;
   font-family: 'Amaranth', sans-serif;
-  /* Correct font family */
   border: black;
-  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   transition: background-color 0.3s ease;
+  width: 150px;
+  height: 60px;
 }

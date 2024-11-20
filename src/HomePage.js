@@ -9,12 +9,12 @@ function HomePage({ onNext }) {
   const [isValid, setIsValid] = useState(true);
 
   const handleSubmit = () => {
-
-    if (id?.match(/^\d{9}$/) && name?.match(/^[A-Za-z]{2,}$/) && age >= 18 && age <= 99 && gender) {
-        onNext(name);
-      } else {
-        setIsValid(false);
-      }
+    // if (id?.match(/^\d{9}$/) && name?.match(/^[A-Za-z]{2,}\s[A-Za-z]{2,}$/) && age >= 18 && age <= 99 && gender) {
+    //     onNext(name);
+    //   } else {
+    //     setIsValid(false);
+    //   }
+      onNext(name);
     }
 
   return (
