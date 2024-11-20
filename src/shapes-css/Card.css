@@ -32,7 +32,6 @@
 
 /* Board Card Animation */
 .board-card {
-    transition: all 1s ease-out;
     opacity: 0;
     transform: translateY(300px);
     position: relative;
@@ -41,7 +40,7 @@
 
 /* Dealt Card Animation */
 .board-card.dealt {
-    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.5s ease-out;
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
@@ -49,13 +48,11 @@
 
 /* Animation when dealing */
 .board-cards.dealing .board-card {
-    opacity: 0;
-    transform: translateY(300px);
+    visibility: hidden;
 }
 
 .board-cards.dealing .board-card.dealt {
-    opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
 }
 
 /* User Card Styles */
