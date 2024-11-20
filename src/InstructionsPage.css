@@ -80,3 +80,38 @@
 .instructions-container button:hover {
     background-color: #a83224;
 }
+
+.header-with-speaker {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.speaker-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speaker-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.speaker-button.speaking {
+  background-color: #4CAF50;
+}
+
+.speaker-button.speaking svg {
+  fill: white;
+}
+
+.speaker-button svg {
+  fill: #333;
+  transition: fill 0.3s ease;
+}
